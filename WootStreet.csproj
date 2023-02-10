@@ -235,7 +235,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clients\CNNMoneyClient.cs" />
-    <Compile Include="Services\MessageBuilder.cs" />
+    <Compile Include="Services\Posting.cs" />
     <Compile Include="Clients\TheOnionClient.cs" />
     <Compile Include="Clients\TwitterClient.cs" />
     <EmbeddedResource Include="WootStreetForm.resx">

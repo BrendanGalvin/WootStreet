@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions;
 using Microsoft.Extensions.Configuration;
+using WootStreet.Clients;
 
 namespace WootStreet
 {
@@ -26,7 +27,11 @@ namespace WootStreet
             Global.DiscordWebhookURL = configuration["DiscordWebhookURL"];
             Global.DiscordUsername = configuration["DiscordUsername"];
             Global.TwitterHandle = configuration["TwitterHandle"];
-
+            Global.CNNReader = new CNNClient();
+            Global.OnionReader = new TheOnionClient();
+            Global.Dow = new CNNMoneyClient();
+            Global.Twitter = new TwitterClient();
+            Global.Alpaca = new AlpacaClient();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new WootStreetForm());

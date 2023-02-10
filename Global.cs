@@ -9,11 +9,11 @@ namespace WootStreet
 {
     public static class Global
     {
-        public static CNNClient CNNReader = new CNNClient();
-        public static TheOnionClient OnionReader = new TheOnionClient();
-        public static CNNMoneyClient Dow = new CNNMoneyClient();
-        public static TwitterClient Twitter = new TwitterClient();
-        public static AlpacaClient Alpaca = new AlpacaClient();
+        public static CNNClient CNNReader;
+        public static TheOnionClient OnionReader;
+        public static CNNMoneyClient Dow;
+        public static TwitterClient Twitter;
+        public static AlpacaClient Alpaca;
         public static string TwitterKey { get; set; }
         public static string TwitterSecret { get; set; }
         public static string DiscordWebhookURL { get; set; }
