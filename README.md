@@ -9,7 +9,8 @@ To use this bot for yourself, simply clone the repo, then add a file called "Key
   "TwitterSecret": "Secret Here",
   "AlpacaKey": "Key Here",
   "AlpacaSecret": "Secret Here",
-  "DiscordWebhookURL": "Full Discord Webhook URL Here"
+  "DiscordWebhookURL": "Full Discord Webhook URL Here",
+  "TwitterHandle": "YourTwitterHandle"
 }
 
 It will then run properly, once you fill out your API keys and such. And obviously, give it a Discord webhook to post with.
