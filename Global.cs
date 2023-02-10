@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WootStreet.Clients;
 
 namespace WootStreet
 {
     public static class Global
     {
+        public static CNNClient CNNReader = new CNNClient();
+        public static TheOnionClient OnionReader = new TheOnionClient();
+        public static CNNMoneyClient Dow = new CNNMoneyClient();
+        public static TwitterClient Twitter = new TwitterClient();
+        public static AlpacaClient Alpaca = new AlpacaClient();
         public static string TwitterKey { get; set; }
         public static string TwitterSecret { get; set; }
         public static string DiscordWebhookURL { get; set; }
         public static string AlpacaKey { get; set; }
         public static string AlpacaSecret { get; set; }
         public static string DiscordUsername { get; set; }
+        public static string TwitterHandle { get; set; }
+        public static bool PostToTwitter { get; set; } = true;
+        public static bool PostToDiscord { get; set; } = true;
 
         public static List<string> RisingHeadlines = new List<string>
         {

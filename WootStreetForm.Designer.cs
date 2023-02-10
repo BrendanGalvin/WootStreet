@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,6 +41,8 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.TwitterCheckbox = new System.Windows.Forms.CheckBox();
+            this.DiscordCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,10 +109,10 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(59, 141);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(660, 278);
@@ -133,11 +135,39 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "TICKER:";
             // 
+            // TwitterCheckbox
+            // 
+            this.TwitterCheckbox.AutoSize = true;
+            this.TwitterCheckbox.Checked = true;
+            this.TwitterCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TwitterCheckbox.Location = new System.Drawing.Point(143, 28);
+            this.TwitterCheckbox.Name = "TwitterCheckbox";
+            this.TwitterCheckbox.Size = new System.Drawing.Size(100, 17);
+            this.TwitterCheckbox.TabIndex = 10;
+            this.TwitterCheckbox.Text = "Post to Twitter?";
+            this.TwitterCheckbox.UseVisualStyleBackColor = true;
+            this.TwitterCheckbox.CheckStateChanged += new System.EventHandler(this.TwitterCheckbox_CheckStateChanged);
+            // 
+            // DiscordCheckbox
+            // 
+            this.DiscordCheckbox.AutoSize = true;
+            this.DiscordCheckbox.Checked = true;
+            this.DiscordCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DiscordCheckbox.Location = new System.Drawing.Point(143, 56);
+            this.DiscordCheckbox.Name = "DiscordCheckbox";
+            this.DiscordCheckbox.Size = new System.Drawing.Size(104, 17);
+            this.DiscordCheckbox.TabIndex = 11;
+            this.DiscordCheckbox.Text = "Post to Discord?";
+            this.DiscordCheckbox.UseVisualStyleBackColor = true;
+            this.DiscordCheckbox.CheckStateChanged += new System.EventHandler(this.DiscordCheckbox_CheckStateChanged);
+            // 
             // WootStreetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DiscordCheckbox);
+            this.Controls.Add(this.TwitterCheckbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.chart1);
@@ -168,6 +198,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox TwitterCheckbox;
+        private System.Windows.Forms.CheckBox DiscordCheckbox;
     }
 }
 

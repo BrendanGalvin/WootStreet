@@ -25,7 +25,8 @@ namespace WootStreet
             Global.TwitterSecret = configuration["TwitterSecret"];
             Global.DiscordWebhookURL = configuration["DiscordWebhookURL"];
             Global.DiscordUsername = configuration["DiscordUsername"];
-            
+            Global.TwitterHandle = configuration["TwitterHandle"];
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new WootStreetForm());

@@ -15,12 +15,6 @@ namespace WootStreet
 {
     public partial class WootStreetForm : Form
     {
-        CNNClient cnnReader = new CNNClient();
-        TheOnionClient onionReader = new TheOnionClient();
-        CNNMoneyClient dow = new CNNMoneyClient();
-        TwitterClient twitter = new TwitterClient();
-        AlpacaClient alpaca = new AlpacaClient();
-        int countdownUntilNextChart = 0;
 
         public WootStreetForm()
         {
@@ -29,15 +23,7 @@ namespace WootStreet
 
         private async void button4_Click(object sender, EventArgs e)
         {
-
-            string ticker = Global.cashTags[new Random().Next(Global.cashTags.Count)];
-            if (!string.IsNullOrWhiteSpace(textBox2.Text))
-                ticker = textBox2.Text;
-            var message = await MessageBuilder.HeadlineMessage(cnnReader, dow, onionReader, ticker);
-            string TAphrase = Global.TAPhrases[new Random().Next(Global.TAPhrases.Count)];
-            await Charting.renderDataToChart(chart1, ticker, alpaca);
-            var secondTweetID = await twitter.PostTweetWithMedia(message, chart1);
-            PostHeadlineToDiscord(secondTweetID.ToString());
+            await Posting.PostMessageToMedia(chart1, textBox2.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,42 +48,30 @@ namespace WootStreet
 
         private async void headlineTimer_Tick(object sender, EventArgs e)
         {
-
-            TimeSpan start = new TimeSpan(6, 30, 15); //6:30 AM, but delayed slightly to make sure wobsites are working properly with market open
-            TimeSpan end = new TimeSpan(13, 0, 0); //1 PM
-            TimeSpan now = DateTime.Now.TimeOfDay;
+            
+            TimeSpan start = new TimeSpan(9, 30, 5); //2:30 PM UTC, when markets open, but delayed slightly to make sure wobsites are working properly with market open.
+            TimeSpan end = new TimeSpan(21, 0, 0); //9 PM UTC, markets closed.
+            TimeSpan now = DateTime.UtcNow.TimeOfDay; //Get the current time of day in UTC timezone, to normalize across regions (but I'm sure there's some garbage with stuff like Daylight Savings or who knows what else)
             if ((now > start) && (now < end))
             {
-                countdownUntilNextChart++;
-                string ticker = Global.cashTags[new Random().Next(Global.cashTags.Count)];
-                var message = await MessageBuilder.HeadlineMessage(cnnReader, dow, onionReader, ticker);
-                string TAphrase = Global.TAPhrases[new Random().Next(Global.TAPhrases.Count)];
-                await Charting.renderDataToChart(chart1, ticker, alpaca);
-                var secondTweetID = await twitter.PostTweetWithMedia(message, chart1);
-                PostHeadlineToDiscord(secondTweetID.ToString());
-                countdownUntilNextChart = 0;
-
+                await Posting.PostMessageToMedia(chart1);
             }
         }
 
-
-        private async void PostHeadlineToDiscord(string message)
-        {
-
-            if (await dow.IsDowUp())
-            {
-                await Discord.PostDiscord("https://twitter.com/OptionusP/status/" + message); //https://cdn.discordapp.com/attachments/700386029986906116/718321864333852782/image0.gif
-            }
-            else
-            {
-                await Discord.PostDiscord("https://twitter.com/OptionusP/status/" + message); //https://cdn.discordapp.com/attachments/700386029986906116/718322723587358730/image0.gif
-            }
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            twitter.SetPIN(textBox1.Text);
+            Global.Twitter.SetPIN(textBox1.Text);
         }
 
+        private void TwitterCheckbox_CheckStateChanged(object sender, EventArgs e)
+        {
+            Global.PostToTwitter = TwitterCheckbox.Checked;
+        }
+
+        private void DiscordCheckbox_CheckStateChanged(object sender, EventArgs e)
+        {
+            Global.PostToDiscord = DiscordCheckbox.Checked;
+        }
     }
 }

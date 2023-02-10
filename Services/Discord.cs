@@ -16,6 +16,11 @@ namespace WootStreet.Services
             BaseAddress = new Uri("https://discordapp.com/api/webhooks/")
         };
 
+        /// <summary>
+        /// Posts a simple text message to Discord, using the <see cref="Global.DiscordWebhookURL"/>.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public static async Task<string> PostDiscord(string message)
         {
 
@@ -39,6 +44,13 @@ namespace WootStreet.Services
             }
         }
 
+        /// <summary>
+        /// Posts an embedded, "prettier" Discord message to the <see cref="Global.DiscordWebhookURL"/>, which can contain an image, message title, and message contents. Only image URLs are supported with webhooks, your image must be located at a URL, not uploaded to discord with this call.
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="imageURL"></param>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public static async Task<string> PostDiscordEmbed(string content, string imageURL, string title)
         {
 
