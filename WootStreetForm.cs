@@ -49,7 +49,7 @@ namespace WootStreet
         private async void headlineTimer_Tick(object sender, EventArgs e)
         {
             
-            TimeSpan start = new TimeSpan(9, 30, 5); //2:30 PM UTC, when markets open, but delayed slightly to make sure wobsites are working properly with market open.
+            TimeSpan start = new TimeSpan(14, 30, 5); //2:30 PM UTC, when markets open, but delayed slightly to make sure wobsites are working properly with market open.
             TimeSpan end = new TimeSpan(21, 0, 0); //9 PM UTC, markets closed.
             TimeSpan now = DateTime.UtcNow.TimeOfDay; //Get the current time of day in UTC timezone, to normalize across regions (but I'm sure there's some garbage with stuff like Daylight Savings or who knows what else)
             if ((now > start) && (now < end))
