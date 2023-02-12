@@ -40,7 +40,11 @@ namespace WootStreet
             "breaks out",
             "goes ballistic",
             "throws a party",
-            "practices the art of 'being very high'"
+            "practices the art of 'being very high'",
+            "took viagra",
+            "hopped on a SpaceX rocket",
+            "blew itself harder than a Russian tank",
+            "headed to the sky faster than an F-22 tracking a Chinese balloon"
         };
 
         public static List<string> FallingHeadline = new List<string>
@@ -80,7 +84,11 @@ namespace WootStreet
             "slothfully",
             "immediately",
             "tenderly",
-            "unexpectedly"
+            "unexpectedly",
+            "catastrophically",
+            "impressively",
+            "hastily",
+            "quicker than an F-22 tracking a Chinese balloon"
         };
 
         public static List<string> PublishPhrases = new List<string>
@@ -98,7 +106,15 @@ namespace WootStreet
             "Currently happening",
             "Autobot spies report",
             "Informants in Megatron's ranks tell us",
-            "Cybertron News Network reports"
+            "Cybertron News Network reports",
+            "My uncle told me",
+            "Some hobo on the street let me in on a secret. He said",
+            "Hunter Biden's Laptop has documents relating to",
+            "Donald Trump admitted to",
+            "Hillary's Emails are alleged to contain data relating to",
+            "A little bird-bot told me",
+            "Someone on Reddit said",
+            "I heard on Discord"
         };
 
         public static List<string> RisingPhrases = new List<string>
@@ -113,7 +129,11 @@ namespace WootStreet
             "Profits are essential to our freedoms!",
             "Dividends are the right of all sentient beings!",
             "Autobots cannot be defeated by the pathetic, poor machinations of Megatron!",
-            "Freedom = money!"
+            "Freedom = money!",
+            "Cry harder, bears!",
+            "Defeat the bears!",
+            "NEVER SELL!",
+            "HODL!"
         };
 
         public static List<string> FallingPhrases = new List<string>
@@ -130,7 +150,10 @@ namespace WootStreet
             "Buy high, sell low!",
             "An excellent opportunity for shorting!",
             "Sell naked calls!",
-            "My put debit spread is doing well!"
+            "My put debit spread is doing well!",
+            "SELL EVERYTHING!!",
+            "Be greedy when others are fearful!",
+            "Cash is trash! Or so I've been told."
         };
 
 
@@ -676,7 +699,10 @@ namespace WootStreet
             "The nature of this complex and intricate mathematical analysis of price charts is known only to a few. We share this knowledge with you, human!",
             "Successful traders draw lines on charts.",
             "If you aren't drawing lines on charts, you are a decepticon.",
-            "Only those who know the secret of the lines, can truly discern the seccrets to infinite profit."
+            "Only those who know the secret of the lines, can truly discern the seccrets to infinite profit.",
+            "I heard Jim Cramer likes my methods. I do not know who this Jim is, but he is most welcome to view my charts.",
+            "He who controls the profits, controls the universe.",
+            "A hive of scum and villainy - and profits!"
         };
 
     }

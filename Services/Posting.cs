@@ -48,7 +48,9 @@ namespace WootStreet.Services
             }
             var message = await Posting.BuildHeadlineMessage(Global.CNNReader, Global.Dow, Global.OnionReader, ticker);
             string TAphrase = Global.TAPhrases[new Random().Next(Global.TAPhrases.Count)];
-            await Charting.renderDataToChart(chart, ticker, Global.Alpaca);
+            bool resultOfChart = await Charting.renderDataToChart(chart, ticker, Global.Alpaca);
+            if (!resultOfChart)
+                return;
             long tweetID = 0;
             if (Global.PostToTwitter)
             {

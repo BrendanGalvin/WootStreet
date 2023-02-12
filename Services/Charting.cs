@@ -31,7 +31,7 @@ namespace WootStreet.Services
         }
 
 
-        public async static Task renderDataToChart(Chart chart, string ticker, AlpacaClient alpaca)
+        public async static Task<bool> renderDataToChart(Chart chart, string ticker, AlpacaClient alpaca)
         {
             try
             {
@@ -47,6 +47,10 @@ namespace WootStreet.Services
                 chart.Series["Band Lower Bound"].XValueType = ChartValueType.DateTime;
                 chart.Series["Resistance"].XValueType = ChartValueType.DateTime;
                 var bars = await alpaca.GetData(ticker);
+                if(bars == null || bars.Items == null || bars.Items.Count == 0)
+                {
+                    return false;
+                }
                 var minValue = bars.Items.First();
                 var absoluteMinValue = bars.Items.First();
                 var maxValue = bars.Items.First();
@@ -106,10 +110,12 @@ namespace WootStreet.Services
                 chart.Series["Resistance"].Color = Color.Purple;
                 chart.Series["Resistance"].ChartType = SeriesChartType.Line;
                 chart.ChartAreas["ChartArea1"].AxisY.LabelStyle.Format = "0.00";
+                return true;
             }
             catch(Exception e)
             {
                 MessageBox.Show(JsonConvert.SerializeObject(e, Formatting.Indented));
+                return false;
             }
         }
     }
